@@ -1,3 +1,9 @@
+sudo apt-get install golang-go
+
+go get -u github.com/justjanne/powerline-go
+
+sudo apt-get install fonts-powerline
+
 printf `
 # Personal Stuff
 alias ls='ls --color=auto -la'
