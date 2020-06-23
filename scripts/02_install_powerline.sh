@@ -1,3 +1,5 @@
+#!/bin/bash
+
 apt-get install -y fonts-powerline
 apt-get install -y golang-go
 
