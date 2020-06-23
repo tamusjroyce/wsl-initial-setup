@@ -14,6 +14,7 @@ passwd mk8s
 
 cp $BASEDIR/../etc/sudoers /etc/sudoers
 cp $BASEDIR/../etc/wsl.conf /etc/wsl.conf
+echo "default = $(whoami)" >> /etc/wsl.conf
 cp $BASEDIR/../etc/profile.d/00-wsl2-systemd.sh /etc/profile.d/00-wsl2-systemd.sh
 
 echo "sytemd enabled. Please restart wsl"
