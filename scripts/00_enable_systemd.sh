@@ -6,7 +6,9 @@ apt update && apt upgrade -y
 # Install the required packages for SystemD
 apt install -yqq fontconfig daemonize
 # Creates a default user and adds it to the sudo group
-useradd -m -s /bin/bash -G sudo mk8s
+read -p "Please enter desired username: " username
+
+useradd -m -s /bin/bash -G sudo $username
 # Reset the password of the default user
 passwd mk8s
 
