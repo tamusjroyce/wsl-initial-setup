@@ -124,7 +124,7 @@ alias minikube='minikube.exe'
 GOPATH=$HOME/go
 PATH=$PATH:$GOPATH/bin
 
-if [[ $(whomai) == "reliefmelone" ]]; then
+if [[ $(whoami) == "reliefmelone" ]]; then
   CODE=/mnt/c/coding_local
 fi
 # Setting up powerline go

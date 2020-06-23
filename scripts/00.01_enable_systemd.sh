@@ -1,3 +1,5 @@
+#!/bin/bash
+
 BASEDIR=$(dirname $0)
 
 # Updaete the system
@@ -17,4 +19,4 @@ cp $BASEDIR/../etc/wsl.conf /etc/wsl.conf
 printf "default = $username \n" >> /etc/wsl.conf
 cp $BASEDIR/../etc/profile.d/00-wsl2-systemd.sh /etc/profile.d/00-wsl2-systemd.sh
 
-export createdUsername=$username
+export CREATED_USER=$username

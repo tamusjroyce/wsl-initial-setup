@@ -1,5 +1,5 @@
-snap install microk8s --classic
-usermod -a -G microk8s $(whoami)
-chown -f -R $(whoami) ~/.kube 
+#!/bin/bash
 
-exit;
+snap install microk8s --classic
+usermod -a -G microk8s $SUDO_USER
+chown -f -R $SUDO_USER ~/.kube 

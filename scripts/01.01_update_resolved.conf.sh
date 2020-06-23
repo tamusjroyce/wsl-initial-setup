@@ -1,3 +1,5 @@
+#!/bin/bash
+
 BASEDIR=$(dirname $0)
 
 cp $BASEDIR/../etc/systemd/resolved.conf /etc/systemd/resolved.conf
