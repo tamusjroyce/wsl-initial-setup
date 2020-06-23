@@ -10,7 +10,7 @@ useradd -m -s /bin/bash -G sudo mk8s
 # Reset the password of the default user
 passwd mk8s
 
-cp $BASEDIR/../etc/sudoers > /etc/sudoers
+cp $BASEDIR/../etc/sudoers /etc/sudoers
 cp $BASEDIR/../etc/wsl.conf /etc/wsl.conf
 cp $BASEDIR/../etc/profile.d/00-wsl2-systemd.sh /etc/profile.d/00-wsl2-systemd.sh
 
