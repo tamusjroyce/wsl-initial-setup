@@ -1,32 +1,11 @@
-#!/bin/bash
+#!/bin/sh
 
-apt-get install -y fonts-powerline
-apt-get install -y golang-go
+BASEDIR=$(dirname $0)
 
-go get -u github.com/justjanne/powerline-go
+apt update && apt upgrade -y
 
+apt install -yqq fonts-powerline
+apt install -yqq golang-go
+go get -u https://github.com/justjanne/powerline-go
 
-
-printf `
-# Personal Stuff
-alias ls='ls --color=auto -la'
-alias kubectl='kubectl.exe'
-alias helm='helm.exe'
-alias minikube='minikube.exe'
-
-GOPATH=$HOME/go
-PATH=$PATH:$GOPATH/bin
-CODE=/mnt/c/coding_local
-export KUBECONFIG=/mnt/c/Users/chris/.kube/config
-
-# Settomg up powerline go
-function _update_ps1() {
-
- PS1="$($GOPATH/bin/powerline-go -cwd-mode dironly -modules "cwd,git,node,docker,kube,root" $?)"
-
-}
-
-if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
-  PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-fi
-` >> ~/.bashrc
+cat $BASEDIR/../home/.bashrc.add >> ~/.bashrc
