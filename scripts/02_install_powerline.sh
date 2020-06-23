@@ -1,8 +1,9 @@
-apt install golang-go
+apt-get install -y fonts-powerline
+apt-get install -y golang-go
 
 go get -u github.com/justjanne/powerline-go
 
-apt-get install fonts-powerline
+
 
 printf `
 # Personal Stuff
