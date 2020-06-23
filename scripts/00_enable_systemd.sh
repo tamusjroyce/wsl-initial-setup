@@ -14,7 +14,7 @@ passwd $username
 
 cp $BASEDIR/../etc/sudoers /etc/sudoers
 cp $BASEDIR/../etc/wsl.conf /etc/wsl.conf
-printf "default = $(whoami) \n" >> /etc/wsl.conf
+printf "default = $username \n" >> /etc/wsl.conf
 cp $BASEDIR/../etc/profile.d/00-wsl2-systemd.sh /etc/profile.d/00-wsl2-systemd.sh
 
 echo "sytemd enabled. Please restart wsl"
