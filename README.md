@@ -59,3 +59,5 @@ wsl -d ubuntu
 # git clone https://gitlab.com/relief-melone/wsl-initial-setup.git
 # sh ./wsl-initial-setup/install.sh
 ```
+
+5. Exit WSL and start again wit user

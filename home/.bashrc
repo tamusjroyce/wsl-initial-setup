@@ -117,9 +117,6 @@ if ! shopt -oq posix; then
 fi
 # Personal Stuff
 alias ls='ls --color=auto -la'
-alias kubectl='kubectl.exe'
-alias helm='helm.exe'
-alias minikube='minikube.exe'
 
 GOPATH=$HOME/go
 PATH=$PATH:$GOPATH/bin

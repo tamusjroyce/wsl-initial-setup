@@ -1,3 +1,5 @@
+#!/bin/bash
+
 if [ ! -f "/etc/rm-install/stage" ]; then
   BASEDIR=$(dirname $0)
   
