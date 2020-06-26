@@ -1,5 +1,11 @@
 #!/bin/bash
 
+printf "\n\
+==========================\n\
+     ENABLING SYSTEMD\n\
+==========================\n\
+"
+
 BASEDIR=$(dirname $0)
 
 # Updaete the system

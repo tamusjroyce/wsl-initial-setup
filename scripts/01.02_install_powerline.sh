@@ -1,4 +1,9 @@
 #!/bin/bash
+printf "\n\
+==========================\n\
+INSTALLING POWERLINE FONTS\n\
+==========================\n\
+"
 
 apt update && apt upgrade -y
 

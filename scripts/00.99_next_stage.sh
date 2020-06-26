@@ -2,5 +2,7 @@
 
 echo "1" > /etc/rm-install/stage
 
-echo "sytemd enabled. Please exit and restart using wsl --user ${CREATED_USER}"
+echo "sytemd enabled. Please restart using:"
+echo "wsl -d ubuntu --user [your-username] sudo /bin/bash /mnt/c/path/to/install.sh"
+
 exit

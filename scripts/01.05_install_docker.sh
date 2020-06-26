@@ -1,9 +1,8 @@
-# apt-get install -y \
-#   apt-transport-https \
-#   ca-certificates \
-#   software-properties-common \
-#   libssl-dev \
-#   libffi-dev \
+printf "\n\
+==========================\n\
+     INSTALLING DOCKER\n\
+==========================\n\
+"
 
 # Add User to docker group
 groupadd docker

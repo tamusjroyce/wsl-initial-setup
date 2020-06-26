@@ -1,5 +1,11 @@
 #!/bin/bash
 
+printf "\n\
+==========================\n\
+  Updating resolve.conf \n\
+==========================\n\
+"
+
 BASEDIR=$(dirname $0)
 
 cp $BASEDIR/../etc/systemd/resolved.conf /etc/systemd/resolved.conf
