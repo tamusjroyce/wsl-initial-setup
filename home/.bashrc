@@ -120,7 +120,7 @@ alias ls='ls --color=auto -la'
 alias skaffold='skaffold --color=91'
 
 GOPATH=$HOME/go
-PATH=$PATH:$GOPATH/bin
+PATH=/usr/bin:$PATH:$GOPATH/bin
 
 if [[ $(whoami) == "reliefmelone" ]]; then
   CODE=/mnt/c/coding_local

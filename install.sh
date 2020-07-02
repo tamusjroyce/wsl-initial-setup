@@ -28,5 +28,6 @@ if [[ currentStage -eq 1 ]]; then
   $BASEDIR/scripts/01.08_install_skaffold.sh
   $BASEDIR/scripts/01.09_install_personal_settings.sh
   $BASEDIR/scripts/01.10_configure_vim.sh
+  $BASEDIR/scripts/01.11_install_nodejs.sh
   $BASEDIR/Scripts/01.99_next_stage.sh
 fi
