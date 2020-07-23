@@ -14,7 +14,7 @@ echo "Current Stage is: $currentStage"
 
 if [[ currentStage -eq 0 ]]; then
   $BASEDIR/scripts/00.01_enable_systemd.sh && \
-  $BASEDIR/Scripts/00.99_next_stage.sh
+  $BASEDIR/scripts/00.99_next_stage.sh
 fi
 
 if [[ currentStage -eq 1 ]]; then
@@ -29,5 +29,5 @@ if [[ currentStage -eq 1 ]]; then
   $BASEDIR/scripts/01.09_install_personal_settings.sh
   $BASEDIR/scripts/01.10_configure_vim.sh
   $BASEDIR/scripts/01.11_install_nodejs.sh
-  $BASEDIR/Scripts/01.99_next_stage.sh
+  $BASEDIR/scripts/01.99_next_stage.sh
 fi
