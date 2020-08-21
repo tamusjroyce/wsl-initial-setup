@@ -6,5 +6,5 @@ printf "\n\
 ==========================\n\
 "
 
-apt-get install nodejs
-apt-get install npm
+apt-get install -y nodejs
+apt-get install -y npm
