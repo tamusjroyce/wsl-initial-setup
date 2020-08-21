@@ -6,5 +6,4 @@ printf "\n\
 ==========================\n\
 "
 
-apt-get install -y nodejs
-apt-get install -y npm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
