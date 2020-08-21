@@ -15,7 +15,7 @@ I_WSL_TOOLS=$(whiptail --checklist "WSL - Select Components (Deselect all if in 
 read -a I_WSL_TOOLS <<< $I_WSL_TOOLS
 
 for component_script in "${I_WSL_TOOLS[@]}"; do
-  $component_script
+  eval $component_script
 done
 
 ### NEXT STAGE ###
