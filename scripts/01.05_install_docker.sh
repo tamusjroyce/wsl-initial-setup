@@ -4,6 +4,10 @@ printf "\n\
 ==========================\n\
 "
 
+if [[ !$(command -v curl) ]]; then
+  apt-get install -y curl
+fi
+
 # Add User to docker group
 groupadd docker
 usermod -aG docker $SUDO_USER

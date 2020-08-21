@@ -68,11 +68,11 @@ ssh(){
   $BASEDIR/01.13_install_open_ssh_server.sh
 }
 
-I_DEV_TOOLS=$(whiptail --checklist "Dev Tools - Select Components" 10 50 2 \
+I_DEV_TOOLS=$(whiptail --checklist "Dev Tools - Select Components" 10 50 4 \
   vim       "Recommended vim settings"    on \
   nodejs    "NodeJs"                      on \
   nano      "Recommended nano settings"   on \
-  ssh	    "Open SSH Server"       	  on \
+  ssh	      "Open SSH Server"       	  on \
   3>&1 1>&2 2>&3)
 
 read -a I_DEV_TOOLS <<< $I_DEV_TOOLS

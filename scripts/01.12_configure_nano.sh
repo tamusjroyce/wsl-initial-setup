@@ -6,6 +6,9 @@ printf "\n\
 ==========================\n\
 "
 
+if [[ !$(command -v curl) ]]; then
+  apt-get install -y curl
+fi
 
 # ADD SYNTAX SUPPORT
 curl https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | sh
