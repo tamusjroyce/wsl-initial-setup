@@ -10,9 +10,13 @@ if [[ !$(command -v curl) ]]; then
   apt-get install -y curl
 fi
 
+if [[ !$(command -v unzip) ]]; then
+  apt-get install -y unzip
+fi
+
 # ADD SYNTAX SUPPORT
 curl https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | sh
-curl https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | sudo -u default sh
+curl https://raw.githubusercontent.com/scopatz/nanorc/master/install.sh | sudo -u $SUDO_USER sh
 
 
 addLine="include \"~/.nano/ts.nanorc\""
