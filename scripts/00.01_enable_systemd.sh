@@ -9,10 +9,10 @@ printf "\n\
 BASEDIR=$(dirname $0)
 
 # Updaete the system
-apt update && apt upgrade -y
+apt-get update && apt-get upgrade -y
 
 # Install the required packages for SystemD
-apt install -yqq fontconfig daemonize
+apt-get install -yqq fontconfig daemonize
 # Creates a default user and adds it to the sudo group
 read -p "Please enter desired username: " username
 

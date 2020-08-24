@@ -14,6 +14,9 @@ systemctl restart systemd-resolved
 apt update
 
 # Forward all localhost ports to default interface
-echo 'net.ipv4.conf.all.route_localnet = 1' | sudo tee -a /etc/sysctl.conf
+addLine="net.ipv4.conf.all.route_localnet = 1"
+
+grep -qxF "$addLine" /etc/sysctl.conf || echo $addLine >> /etc/sysctl.conf
+
 # Apply the change
 sudo sysctl -p /etc/sysctl.conf
