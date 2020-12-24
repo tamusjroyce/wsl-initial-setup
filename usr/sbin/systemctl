@@ -1,0 +1,11 @@
+#!/bin/bash
+command=$1
+lookup_find=('start' 'stop' 'restart' 'status' 'enable' 'disable')
+lookup_replace=('start' 'stop' 'restart' 'status' 'on' 'off')
+for i in "${!lookup_find[@]}"; do
+    if [[ "${lookup_find[i]}" = "$command" ]]; then
+        command="${lookup_replace[i]}"
+    fi
+done
+service "$2" "$command"
+

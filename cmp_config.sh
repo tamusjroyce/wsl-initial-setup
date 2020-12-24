@@ -5,7 +5,7 @@ file2=$2
 tmpfile=$(mktemp)
 
 retry="y"
-while [[ $retry =~ ^[Yy]$ ]]
+while [[ $retry =~ ^[Yy]$ ]]; do
     retry="n"
 
     diff --new-line-format="$(printf '======= test1.txt\n%%L>>>>>>>')" --old-line-format="$(printf '<<<<<<< test2.txt\n%%L')" --unchanged-line-format='%L' "$file1" "$file2" > "$tmpfile"
@@ -26,7 +26,7 @@ while [[ $retry =~ ^[Yy]$ ]]
         exit 0
     else
         while grep -q ">>>>>>>" "$tmpfile" || grep -q "<<<<<<<" "$tmpfile"; do
-            read -p "Conflicts are detected. Would you like to edit again to resolve these conflicts?" yn -r
+            read -p "Conflicts are detected. Would you like to edit again to resolve these conflicts?" yn 
             echo
             if [[ $yn =~ ^[Nn]$ ]]
             then
@@ -45,11 +45,11 @@ while [[ $retry =~ ^[Yy]$ ]]
     echo
 
     while [[ 1 -eq 1 ]]; do
-        read -p "Would you like to continue with applying this change?" yn -r
+        read -p "Would you like to continue with applying this change?" yn
         echo
         if [[ $yn =~ ^[Nn]$ ]]
         then
-            read -p "Would you like to retry from the beginning?" retry -r
+            read -p "Would you like to retry from the beginning?" retry
             echo
 
             if [[ $retry =~ ^[Nn]$ ]]; then
