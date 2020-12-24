@@ -44,6 +44,10 @@ skaffold(){
   $BASEDIR/01.08_install_skaffold.sh
 }
 
+gui(){
+  $BASEDIR/01.14_install_gui.sh
+}
+
 $BASEDIR/01.01_update_resolved.conf.sh
 
 for install_module in "${I_CLOUD_TOOLS[@]}"; do
@@ -72,8 +76,9 @@ I_DEV_TOOLS=$(whiptail --checklist "Dev Tools - Select Components" 10 50 4 \
   vim       "Recommended vim settings"    on \
   nodejs    "NodeJs"                      on \
   nano      "Recommended nano settings"   on \
-  ssh	      "Open SSH Server"       	  on \
-  3>&1 1>&2 2>&3)
+  ssh	      "Open SSH Server"             on \
+  gui       "dbus/gui"                    on \
+  3>&1 1>&2 2>&3 4>&4)
 
 read -a I_DEV_TOOLS <<< $I_DEV_TOOLS
 

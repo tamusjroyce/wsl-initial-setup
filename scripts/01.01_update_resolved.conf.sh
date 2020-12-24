@@ -8,7 +8,7 @@ printf "\n\
 
 BASEDIR=$(dirname $0)
 
-cp $BASEDIR/../etc/systemd/resolved.conf /etc/systemd/resolved.conf
+./cmp_config.sh $BASEDIR/../etc/systemd/resolved.conf /etc/systemd/resolved.conf
 
 systemctl restart systemd-resolved
 apt update

@@ -16,13 +16,17 @@ apt-get install -yqq fontconfig daemonize
 # Creates a default user and adds it to the sudo group
 read -p "Please enter desired username: " username
 
-useradd -m -s /bin/bash -G sudo $username
-# Reset the password of the default user
-passwd $username
+if id "$1" &>/dev/null; then
+    echo "$1 user found"
+else
+    useradd -m -s /bin/bash -G sudo $username
+    # Reset the password of the default user
+    passwd $username
+fi
 
-cp $BASEDIR/../etc/sudoers /etc/sudoers
-cp $BASEDIR/../etc/wsl.conf /etc/wsl.conf
+./cmp_config.sh $BASEDIR/../etc/sudoers /etc/sudoers
+./cmp_config.sh $BASEDIR/../etc/wsl.conf /etc/wsl.conf
 printf "default = $username \n" >> /etc/wsl.conf
-cp $BASEDIR/../etc/profile.d/00-wsl2-systemd.sh /etc/profile.d/00-wsl2-systemd.sh
+./cmp_config.sh $BASEDIR/../etc/profile.d/00-wsl2-systemd.sh /etc/profile.d/00-wsl2-systemd.sh
 
 export CREATED_USER=$username

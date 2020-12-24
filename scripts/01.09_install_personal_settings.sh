@@ -9,10 +9,10 @@ if [[ $SUDO_USER == "reliefmelone" ]]; then
 ==========================\n\
 "
   echo "=======Setting .gitconfig"
-  cp $BASEDIR/../home/.gitconfig /home/$SUDO_USER/.gitconfig
-  cp $BASEDIR/../home/.gitconfig ~/.gitconfig
+  ./cmp_config.sh cp $BASEDIR/../home/.gitconfig /home/$SUDO_USER/.gitconfig
+  ./cmp_config.sh cp $BASEDIR/../home/.gitconfig ~/.gitconfig
   echo "=======Setting inputrc"
-  cp $BASEDIR/../etc/inputrc /etc/inputrc
+  ./cmp_config.sh $BASEDIR/../etc/inputrc /etc/inputrc
   echo "=======Linking coding_local"
   ln -s /mnt/c/coding_local /coding_local
 fi
