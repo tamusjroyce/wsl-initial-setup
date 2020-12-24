@@ -8,11 +8,12 @@ RUN_NEXT_STAGE=$1
 I_CLOUD_TOOLS=$(whiptail \
   --checklist "Cloud Tools - Select Components" 10 50 6 \
   powerline   "Powerline Fonts in Bash"   on \
-  microk8s    "MicroK8s"                  on \
-  docker      "Docker"                    on \
-  kubectl     "kubectl"                   on \
-  helm        "helm"                      on \
-  skaffold    "skaffold"                  on \
+  microk8s    "MicroK8s"                  off \
+  docker      "Docker"                    off \
+  kubectl     "kubectl"                   off \
+  helm        "helm"                      off \
+  skaffold    "skaffold"                  off \
+  lxd         "lxd"                       off \
   3>&1 1>&2 2>&3)
 
 read -a I_CLOUD_TOOLS <<< $I_CLOUD_TOOLS
@@ -44,8 +45,16 @@ skaffold(){
   $BASEDIR/01.08_install_skaffold.sh
 }
 
-gui(){
-  $BASEDIR/01.14_install_gui.sh
+lxd(){
+  $BASEDIR/01.16_install_lxd.sh
+}
+
+xfce(){
+  $BASEDIR/01.14_install_gui_xfce.sh
+}
+
+gnome(){
+  $BASEDIR/01.15_install_gui_gnome.sh
 }
 
 $BASEDIR/01.01_update_resolved.conf.sh
@@ -77,12 +86,22 @@ I_DEV_TOOLS=$(whiptail --checklist "Dev Tools - Select Components" 10 50 4 \
   nodejs    "NodeJs"                      on \
   nano      "Recommended nano settings"   on \
   ssh	      "Open SSH Server"             on \
-  gui       "dbus/gui"                    on \
-  3>&1 1>&2 2>&3 4>&4)
+  3>&1 1>&2 2>&3)
 
 read -a I_DEV_TOOLS <<< $I_DEV_TOOLS
 
 for install_module in "${I_DEV_TOOLS[@]}"; do
+  eval $install_module
+done
+
+I_GUI_DESKTOPS=$(whiptail --checklist "GUI Desktops - Select Components" 10 50 4 \
+  xfce      "Gui xfce"                    on \
+  gnome     "Gui gnome"                   off \
+  3>&1 1>&2 2>&3 4>&4)
+
+read -a I_GUI_DESKTOPS <<< $I_GUI_DESKTOPS
+
+for install_module in "${I_GUI_DESKTOPS[@]}"; do
   eval $install_module
 done
 

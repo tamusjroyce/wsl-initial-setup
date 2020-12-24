@@ -1,0 +1,32 @@
+#!/bin/bash
+printf "\n\
+==========================\n\
+INSTALLING OPEN SSH SERVER\n\
+==========================\n\
+"
+
+apt-get install -y dbus-x11
+dbus-uuidgen --ensure
+
+sed -i 's/<listen>.*<\/listen>/<listen>tcp:host=localhost,port=0<\/listen>/' /etc/dbus-1/session.conf
+
+systemctl enable dbus || echo "systemctl didn't enable dbus"
+/etc/init.d/dbus start || echo "could not start dbus"
+
+# apt-get install -y ubuntu-desktop
+apt-get install -y ubuntu-unity-desktop # old gnome-based Canonical desktop they ditched
+apt-get install -y compiz-core
+apt-get install -y compizconfig-settings-manager
+
+export DISPLAY=:0.0
+dbus-launch --exit-with-x11
+
+# Try to install 3.32
+apt-get install -y gnome-shell=3.32 || echo "gnome 3.32 not available, and gnome 3.34+ relies on systemd, which is not available to wsl"
+apt purge xscreensaver gnome-screensaver gnome-power-manager
+
+for dir in /home/*/
+do
+    echo "export DISPLAY=:0.0" >> "${dir}.bashrc"
+done
+
