@@ -1,3 +1,6 @@
+Fork from https://gitlab.com/relief-melone/wsl-initial-setup
+Credit goes to Melone from GitLab.
+
 # My Basic Setup for WSL
 
 Set of scripts to run on a freshly installed ubtuntu rootfs version. Current ones can be found here
